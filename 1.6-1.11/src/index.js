@@ -27,12 +27,16 @@ const Statistics = (props) => {
   if (all > 0) {
     return (
       <div>
-        <Statistic text="good" value={props.good} />
-        <Statistic text="neutral" value={props.neutral} />
-        <Statistic text="bad" value={props.bad} />
-        <Statistic text="all" value={all} />
-        <Statistic text="average" value={average} />
-        <Statistic text="positive" value={positive} />
+        <table>
+          <tbody>
+            <Statistic text="good" value={props.good} />
+            <Statistic text="neutral" value={props.neutral} />
+            <Statistic text="bad" value={props.bad} />
+            <Statistic text="all" value={all} />
+            <Statistic text="average" value={average} />
+            <Statistic text="positive" value={positive} />
+          </tbody>
+        </table>
       </div>
     );
   } else {
@@ -45,11 +49,10 @@ const Statistics = (props) => {
 };
 
 const Statistic = (props) => (
-  <div>
-    <p>
-      {props.text}: {props.value}
-    </p>
-  </div>
+  <tr>
+    <td>{props.text}</td>
+    <td>{props.value}</td>
+  </tr>
 );
 
 const Button = (props) => (
