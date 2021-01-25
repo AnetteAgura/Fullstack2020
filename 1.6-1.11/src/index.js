@@ -13,15 +13,28 @@ const App = () => {
       <Button handleClick={() => setGood(good + 1)} text="Good" />
       <Button handleClick={() => setNeutral(neutral + 1)} text="Neutral" />
       <Button handleClick={() => setBad(bad + 1)} text="Bad" />
+      <Statistics bad={bad} good={good} neutral={neutral} />
+    </div>
+  );
+};
+
+const Statistics = (props) => {
+  return (
+    <div>
       <h1>Statistics:</h1>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>All: {good + neutral + bad}</p>
+      <p>Good: {props.good}</p>
+      <p>Neutral: {props.neutral}</p>
+      <p>Bad: {props.bad}</p>
+      <p>All: {props.good + props.neutral + props.bad}</p>
       <p>
-        Avarage: {(good * 1 + neutral * 0 + bad * -1) / (good + neutral + bad)}
+        Avarage:{" "}
+        {(props.good * 1 + props.neutral * 0 + props.bad * -1) /
+          (props.good + props.neutral + props.bad)}
       </p>
-      <p>Positive: {(good / (bad + neutral + good)) * 100}%</p>
+      <p>
+        Positive:{" "}
+        {(props.good / (props.bad + props.neutral + props.good)) * 100}%
+      </p>
     </div>
   );
 };
